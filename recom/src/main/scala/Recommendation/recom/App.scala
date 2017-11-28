@@ -33,8 +33,6 @@ object App {
 
       val model = ALS.train(ratings, 50, 10, 0.01)
 
-      //val predictedRating = model.predict(23, 2)
-
       val userid = args(0).toInt
 
       val k = 10
@@ -43,17 +41,17 @@ object App {
 
       println(topKRecs.mkString("\n"))
 
-      val movies = sc.textFile("file:/usr/local/items.csv")
+      val items = sc.textFile("file:/usr/local/items.csv")
       //val movies = sc.textFile("hdfs://localhost:9000/user/hadoopuser/items.csv")
 
-      val titles = movies.map(line => line.split(",").take(2)).map(array => (array(0).toInt,
+      val titles = items.map(line => line.split(",").take(2)).map(array => (array(0).toInt,
         array(1))).collectAsMap()
 
-      val moviesForUser = ratings.keyBy(_.user).lookup(userid)
+      val itemsForUser = ratings.keyBy(_.user).lookup(userid)
 
-      println(moviesForUser.size)
+      println(itemsForUser.size)
 
-      val op = moviesForUser.sortBy(-_.rating).take(10).map(rating => (titles(rating.product), rating.rating))
+      val op = itemsForUser.sortBy(-_.rating).take(10).map(rating => (titles(rating.product), rating.rating))
 
       //sc.parallelize(op.toSeq).saveAsTextFile("file:/usr/local/ops");
       
