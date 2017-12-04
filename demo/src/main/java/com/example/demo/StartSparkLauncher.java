@@ -9,12 +9,13 @@ public class StartSparkLauncher {
 		
 		//final String javaHome = "/usr";
 		final String sparkHome = "/usr/local/spark-2.2.0-bin-hadoop2.7";
-		final String appResource = "/usr/local/cibussmart.jar";
+		final String appResource = "/usr/local/cibussmarts310.jar";
 		final String mainClass = "Recommendation.recom.App";
 		
 		Process proc = null;
 		ReadStream s1 = null;
 		ReadStream s2 = null;
+		ReadStream s3 = null;
 		
 		SparkLauncher spark = new SparkLauncher()
 				.setVerbose(true)
@@ -22,12 +23,12 @@ public class StartSparkLauncher {
 				.setSparkHome(sparkHome)
 				.setAppResource(appResource)
 				.setMainClass(mainClass)
-				.setMaster("spark://osboxes:7077")
+				.setMaster("spark://ec2-54-164-174-166.compute-1.amazonaws.com:7077")
 				//.setConf("spark.default.parallelism", "5000")
 				//.setConf("spark.network.timeout", "420000")
-				.setConf(SparkLauncher.DRIVER_MEMORY, "4g")
-				.setConf(SparkLauncher.EXECUTOR_MEMORY, "4g")
-				.setConf(SparkLauncher.EXECUTOR_CORES, "2")
+				.setConf(SparkLauncher.DRIVER_MEMORY, "16g")
+				.setConf(SparkLauncher.EXECUTOR_MEMORY, "16g")
+				.setConf(SparkLauncher.EXECUTOR_CORES, "8")
 				//.setConf("spark.shuffle.consodilateFiles", "true")
 				//.setConf("spark.executor.heartbeatInterval", "360000")
 				//.setConf(SparkLauncher.DRIVER_EXTRA_JAVA_OPTIONS, "-XX:MarPermSize=1024M Xmx2048m")
@@ -42,8 +43,10 @@ public class StartSparkLauncher {
 		
 		s1 = new ReadStream("stdin", proc.getInputStream());
 		s2 = new ReadStream("stderr", proc.getErrorStream());
+		s3 = new ReadStream("stdout", proc.getOutputStream());
 		s1.start();
 		s2.start();
+		s3.start();
 		proc.waitFor();
 		
 		}catch (Exception e) {

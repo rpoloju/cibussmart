@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -30,7 +31,15 @@ public class DataParser {
 			
 			fis.close();br.close();
 			
-			fis = new FileInputStream("/usr/local/ops/part-00000");
+			File homedir = new File("");
+			System.out.println("the path is " + homedir.getPath());
+			System.out.println(homedir.exists());
+			File file = new File(homedir, "/usr/local/ops/part-00000");
+			System.out.println(file.getPath());
+			System.out.println(file.exists());
+			
+			//File file = new File("/ops/part-00000");
+			fis = new FileInputStream(file.getPath());
 			br = new BufferedReader(new InputStreamReader(fis));
 			String strLine, record;
 			String[] data = new String[3];
@@ -47,7 +56,7 @@ public class DataParser {
 			
 			fis.close();br.close();
 			
-			fis = new FileInputStream("/usr/local/ops/part-00001");
+			/*fis = new FileInputStream("/usr/local/ops/part-00001");
 			br = new BufferedReader(new InputStreamReader(fis));
 			while((strLine = br.readLine()) != null) {
 				record = strLine.substring(7);
@@ -58,7 +67,7 @@ public class DataParser {
 				i++;
 			}
 			
-			fis.close();br.close();
+			fis.close();br.close();*/
 		
 			
 		} catch (FileNotFoundException e) {

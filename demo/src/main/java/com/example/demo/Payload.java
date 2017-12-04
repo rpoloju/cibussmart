@@ -10,8 +10,52 @@ public class Payload {
 	private String fruitpunchrating;
 	private String oatmealcookiesrating;
 	private String popchipsrating;
+	private String greniesdogtreatsrating;
+	private String nutivacoconutoilrating;
+	private String herbaltearating;
+	private String orangetangarinerating;
+	private String cheddarbunniesrating;
+	private String gummybearsrating;
+	private String peanutbutterrating;
+	private String pomegranaterating;
 	
 	
+	public String getOatmealcookiesrating() {
+		return oatmealcookiesrating;
+	}
+	public void setOatmealcookiesrating(String oatmealcookiesrating) {
+		this.oatmealcookiesrating = oatmealcookiesrating;
+	}
+	public String getHerbaltearating() {
+		return herbaltearating;
+	}
+	public void setHerbaltearating(String herbaltearating) {
+		this.herbaltearating = herbaltearating;
+	}
+	public String getCheddarbunniesrating() {
+		return cheddarbunniesrating;
+	}
+	public void setCheddarbunniesrating(String cheddarbunniesrating) {
+		this.cheddarbunniesrating = cheddarbunniesrating;
+	}
+	public String getGummybearsrating() {
+		return gummybearsrating;
+	}
+	public void setGummybearsrating(String gummybearsrating) {
+		this.gummybearsrating = gummybearsrating;
+	}
+	public String getPeanutbutterrating() {
+		return peanutbutterrating;
+	}
+	public void setPeanutbutterrating(String peanutbutterrating) {
+		this.peanutbutterrating = peanutbutterrating;
+	}
+	public String getPomegranaterating() {
+		return pomegranaterating;
+	}
+	public void setPomegranaterating(String pomegranaterating) {
+		this.pomegranaterating = pomegranaterating;
+	}
 	public String getapplepierating() {
 		return applepierating;
 	}
@@ -48,17 +92,29 @@ public class Payload {
 	public void setfruitpunchrating(String fruitpunchrating) {
 		this.fruitpunchrating = fruitpunchrating;
 	}
-	public String getoatmealcookiesrating() {
-		return oatmealcookiesrating;
-	}
-	public void setoatmealcookiesrating(String oatmealcookiesrating) {
-		this.oatmealcookiesrating = oatmealcookiesrating;
-	}
 	public String getpopchipsrating() {
 		return popchipsrating;
 	}
 	public void setpopchipsrating(String popchipsrating) {
 		this.popchipsrating = popchipsrating;
+	}
+	public String getGreniesdogtreatsrating() {
+		return greniesdogtreatsrating;
+	}
+	public void setGreniesdogtreatsrating(String greniesdogtreatsrating) {
+		this.greniesdogtreatsrating = greniesdogtreatsrating;
+	}
+	public String getNutivacoconutoilrating() {
+		return nutivacoconutoilrating;
+	}
+	public void setNutivacoconutoilrating(String nutivacoconutoilrating) {
+		this.nutivacoconutoilrating = nutivacoconutoilrating;
+	}
+	public String getOrangetangarinerating() {
+		return orangetangarinerating;
+	}
+	public void setOrangetangarinerating(String orangetangarinerating) {
+		this.orangetangarinerating = orangetangarinerating;
 	}
 	
 	
